@@ -32,10 +32,10 @@ export class UsersRepository implements IUsersRepository {
     last_name,
   }: IFindUserByFullNameDTO): Promise<User[] | undefined> {
 
-    const llast_name =  last_name.toLowerCase();
-    const lfirst_name = first_name.toLowerCase();
+    last_name.toLowerCase();
+    first_name.toLowerCase();
        
-       const users = await this.repository.query("SELECT * FROM users WHERE lower(first_name) = $1 AND lower(last_name) = $2", [lfirst_name, llast_name])
+       const users = await this.repository.query("SELECT * FROM users WHERE lower(first_name) = $1 AND lower(last_name) = $2", [first_name, last_name])
       
        return users;
   }
